@@ -4,51 +4,51 @@
 
 <persoane>
     <persoana id = "1">
-        <nume>Salaru</nume>
-        <prenume>Ioana</prenume>
-        <varsta>21</varsta>
+        <nume>Hepburn</nume>
+        <prenume>Audrey</prenume>
+        <varsta>63</varsta>
         <adresa>
-            <strada>Stefan cel mare</strada>
+            <strada>La Paisible</strada>
             <numar>1</numar>
-            <localitate>Harley</localitate>
-            <judet>Ialomita</judet>
-            <tara>Romania</tara>
+            <localitate>Tolochenaz</localitate>
+            <judet>Vaud</judet>
+            <tara>Elveția</tara>
         </adresa>
         <job>
-            <companie>Amazon</companie>
-            <rol>Software Developer</rol>
+            <companie>UNICEF</companie>
+            <rol>Goodwill Ambassador</rol>
         </job>
     </persoana>
     <persoana id = "2">
-        <nume>Loghin</nume>
-        <prenume>Elisei</prenume>
-        <varsta>21</varsta>
+        <nume>Grant</nume>
+        <prenume>Elizabeth Woolridge</prenume>
+        <varsta>39</varsta>
         <adresa>
-            <strada>Cantemir</strada>
-            <numar>1</numar>
-            <localitate>Balti</localitate>
-            <judet>Buzau</judet>
-            <tara>Republica Moldova</tara>
+            <strada>Ocean Avenue</strada>
+            <numar>45</numar>
+            <localitate>Malibu</localitate>
+            <judet>California</judet>
+            <tara>Statele Unite ale Americii</tara>
         </adresa>
         <job>
-            <companie>Bitdefender</companie>
-            <rol>Software Engineer</rol>
+            <companie>Interscope Records</companie>
+            <rol>Cântăreță</rol>
         </job>
     </persoana>
     <persoana id = "3">
-        <nume>Hutanu</nume>
-        <prenume>Laurentiu</prenume>
-        <varsta>22</varsta>
+        <nume>Grande</nume>
+        <prenume>Ariana</prenume>
+        <varsta>31</varsta>
         <adresa>
-            <strada>Campo de Fiori</strada>
-            <numar>131</numar>
-            <localitate>Comma</localitate>
-            <judet>Roma</judet>
-            <tara>Italia</tara>
+            <strada>Boca Raton Blvd</strada>
+            <numar>777</numar>
+            <localitate>Boca Raton</localitate>
+            <judet>Florida</judet>
+            <tara>Statele Unite ale Americii</tara>
         </adresa>
         <job>
-            <companie>Aumovio</companie>
-            <rol>Hacker</rol>
+            <companie>r.e.m. beauty</companie>
+            <rol>CEO</rol>
         </job>
     </persoana>
 </persoane>
