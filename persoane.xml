@@ -10,4 +10,9 @@
         <prenume>Ioana</prenume>
         <varsta>21</varsta>
     </persoana>
+    <persoana>
+        <nume>Loghin</nume>
+        <prenume>Elisei</prenume>
+        <varsta>21</varsta>
+    </persoana>
 </persoane>
