@@ -15,4 +15,9 @@
         <prenume>Elisei</prenume>
         <varsta>21</varsta>
     </persoana>
+    <persoana>
+        <nume>Hutanu</nume>
+        <prenume>Laurentiu</prenume>
+        <varsta>22</varsta>
+    </persoana>
 </persoane>
