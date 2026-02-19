@@ -1,0 +1,45 @@
+<!--indicates that the elements and data types used in the schema come from the "http://www.w3.org/2001/XMLSchema"-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<!--definire tip complex pentru adresa-->
+  <xs:complexType name="tipAdresa">
+    <xs:sequence>
+      <xs:element name="strada" type="xs:string"/>
+      <xs:element name="numar" type="xs:integer"/>
+      <xs:element name="localitate" type="xs:string"/>
+      <xs:element name="judet" type="xs:string"/>
+      <xs:element name="tara" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--definire tip complex pentru job-->
+  <xs:complexType name="tipJob">
+    <xs:sequence>
+      <xs:element name="companie" type="xs:string"/>
+      <xs:element name="rol" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+   <!--definire tip complex pentru persoana-->
+  <xs:complexType name="tipPersoana">
+    <xs:sequence>
+      <xs:element name="nume" type="xs:string"/>
+      <xs:element name="prenume" type="xs:string"/>
+      <xs:element name="varsta" type="xs:integer"/>
+      <xs:element name="adresa" type="tipAdresa"/>
+      <xs:element name="job" type="tipJob"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:integer" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="persoane">
+    <xs:complexType>
+      <xs:sequence>
+        <!--persoane alcatuit din 0+ elemente persoana-->
+        <xs:element name="persoana" type="tipPersoana" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
