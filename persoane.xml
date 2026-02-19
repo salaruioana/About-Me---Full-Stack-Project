@@ -11,6 +11,10 @@
             <judet>Ialomita</judet>
             <tara>Romania</tara>
         </adresa>
+        <job>
+            <companie>Amazon</companie>
+            <rol>Software Developer</rol>
+        </job>
     </persoana>
     <persoana>
         <nume>Loghin</nume>
@@ -23,6 +27,10 @@
             <judet>Buzau</judet>
             <tara>Republica Moldova</tara>
         </adresa>
+        <job>
+            <companie>Bitdefender</companie>
+            <rol>Software Engineer</rol>
+        </job>
     </persoana>
     <persoana>
         <nume>Hutanu</nume>
@@ -31,9 +39,13 @@
         <adresa>
             <strada>Campo de Fiori</strada>
             <numar>131</numar>
-            <localitate>Coma</localitate>
+            <localitate>Comma</localitate>
             <judet>Roma</judet>
             <tara>Italia</tara>
         </adresa>
+        <job>
+            <companie>Aumovio</companie>
+            <rol>Hacker</rol>
+        </job>
     </persoana>
 </persoane>
