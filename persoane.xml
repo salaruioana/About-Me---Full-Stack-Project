@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persoane>
-    <persoana id="1">
-        <nume>Popescu</nume>
-        <prenume>Ion</prenume>
-        <varsta>23</varsta>
-    </persoana>
     <persoana id = "2">
         <nume>Salaru</nume>
         <prenume>Ioana</prenume>
         <varsta>21</varsta>
+        <adresa>
+            <strada>Stefan cel mare</strada>
+            <numar>1</numar>
+            <localitate>Harley</localitate>
+            <judet>Ialomita</judet>
+            <tara>Romania</tara>
+        </adresa>
     </persoana>
     <persoana>
         <nume>Loghin</nume>
         <prenume>Elisei</prenume>
         <varsta>21</varsta>
+        <adresa>
+            <strada>Cantemir</strada>
+            <numar>1</numar>
+            <localitate>Balti</localitate>
+            <judet>Buzau</judet>
+            <tara>Republica Moldova</tara>
+        </adresa>
     </persoana>
     <persoana>
         <nume>Hutanu</nume>
         <prenume>Laurentiu</prenume>
         <varsta>22</varsta>
+        <adresa>
+            <strada>Campo de Fiori</strada>
+            <numar>131</numar>
+            <localitate>Comma</localitate>
+            <judet>Roma</judet>
+            <tara>Italia</tara>
+        </adresa>
     </persoana>
 </persoane>
