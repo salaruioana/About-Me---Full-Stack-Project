@@ -5,6 +5,7 @@
         <title>Despre Ioana</title>
     </head>
     <body>
+        <div class = "Tema1">
         <h1>Despre Ioana</h1>
         <h2>Informații generale</h2>
         <p><strong>Ioana Șalaru</strong> este studentă la Facultatea de Automatică și Calculatoare din cadrul TUIASI.</p>
@@ -14,18 +15,53 @@
         <p>Ioana este pasionată de programare și de dezvoltarea de aplicații web. În timpul liber, îi place să:</p>
         <table border="1">
             <tr>
+                <td>1.</td>
                 <td>Citească</td>
             </tr>
             <tr>
+                <td>2.</td>
                 <td>Gătească</td>
             </tr>
             <tr>
+                <td>3.</td>
                 <td>Călătorească</td>
             </tr>
             <tr>
+                <td>4.</td>
                 <td>Asculte muzică</td>
             </tr>
         </table>
-        <p>Bineînțeles, veți afla <strong>mai multe informații despre Ioana</strong> navigând pe acest site.</p>
+        </div>
+        <div class = "Tema2">
+        <p>Bineînțeles, veți afla <strong>mai multe informații despre Ioana</strong> navigând pe acest site sau abonându-vă la newsletterul ei.</p>
+        <h2>Formular de abonare la newsletter</h2>
+        <form>
+            <label for="nume">Nume:</label>
+            <input type="text" name ="nume" placeholder="Introduceți numele" required>
+            <br>
+            <label for="prenume">Prenume:</label>
+            <input type ="text" name="prenume" placeholder="Introduceți prenumele" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Introduceți adresa de email" required>
+            <br>
+            <label for="parola">Parola:</label>
+            <input type="password" name="parola" placeholder="Introduceți parola" required>
+            <br>
+            <label for="motiv">Motivul abonării:</label>
+            <select name="motiv" required>
+                <option value="interes">Vreau să fim prieteni!</option>
+                <option value="actualizare">O urăsc și vreau să o bârfesc.</option>
+                <option value="promovare">Vreau să aflu recomandări de cărți, melodii, destinații de vacanță.</option>
+            </select>
+            <br>
+            <label for="despre_ioana">Spune-ne ce știi despre Ioana:</label>
+            <textarea name="despre_ioana" placeholder="Scrie ceva despre Ioana..." wrap="off" required></textarea>
+            <br>
+            <input type="checkbox" name="accept" required> Sunt de acord cu termenii și condițiile
+            <br>
+            <button type="submit">Abonează-te</button>
+        </form>
+        </div>
     </body>
 </html>
