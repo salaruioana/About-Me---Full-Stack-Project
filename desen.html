@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Desen SVG - Fundiță Roz</title>
+</head>
+
+<body>
+    <nav>
+            <img src ="./imagini/logo.png" alt="Logo" height="50">
+            <a href="index.html">Acasă</a>
+            <a href="video.html">Video</a>
+            <a href="inregistreaza.html">Formular</a>
+            <a href="despre.html">Despre</a>
+            <a href="desen.html">Desen</a>
+        </nav>
+
+    <svg width="700" height="700">
+        <g transform="translate(100,100)">
+
+        <!-- bucla stanga -->
+        //curbe Bezier
+        <path d="M300 170 
+        C210 80 120 140 180 190
+        C230 230 260 200 300 170"
+        fill="#ff69b4" stroke="#c2185b" stroke-width="3">
+
+        <animate attributeName="fill"
+        from="#ff69b4"
+        to="white"
+        dur="10s"
+        fill="freeze"/>
+        </path>
+
+        <!-- bucla dreapta -->
+        <path d="M300 170 
+        C390 80 480 140 420 190
+        C370 230 340 200 300 170"
+        fill="#ff69b4" stroke="#c2185b" stroke-width="3">
+
+        <animate attributeName="fill"
+        from="#ff69b4"
+        to="white"
+        dur="10s"
+        fill="freeze"/>
+        </path>
+
+        <!-- mijloc -->
+        <ellipse cx="300" cy="170" rx="28" ry="35"
+        fill="#ff69b4" stroke="#c2185b" stroke-width="3">
+
+        <animate attributeName="fill"
+        from="#ff69b4"
+        to="white"
+        dur="10s"
+        fill="freeze"/>
+        </ellipse>
+
+        <!-- panglica stanga -->
+        <polygon points="260,205 210,290 255,270"
+        fill="#ff69b4" stroke="#c2185b" stroke-width="2">
+
+        <animate attributeName="fill"
+        from="#ff69b4"
+        to="white"
+        dur="10s"
+        fill="freeze"/>
+        </polygon>
+
+        <!-- panglica dreapta -->
+        <polygon points="340,205 390,290 345,270"
+        fill="#ff69b4" stroke="#c2185b" stroke-width="2">
+
+        <animate attributeName="fill"
+        from="#ff69b4"
+        to="white"
+        dur="10s"
+        fill="freeze"/>
+        </polygon>
+
+        <g>
+        <text x="300" y="35" text-anchor="middle"
+        font-size="24" fill="#c2185b" >
+        Ioanei îi plac fundițele roz!
+
+        <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 300 220"
+        to="360 300 220"
+        dur="10s"
+        repeatCount="indefinite"/>
+        </text>
+        </g>
+
+        </g>
+    </svg>
+
+    <footer>
+            <hr>
+            <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>
