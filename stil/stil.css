@@ -1,19 +1,31 @@
 :root{
-    --berry: #89023e;
+    --berry: #8a1d6f;
     --dusty-pink: #ffd9da;
     --jet-black: #30343f;
     --carbon-black:#1b2021;
 }
 
+
 /* Font global pentru tot site-ul */
 * {
     font-family: "Playfair Display", serif;
+    background-color: var(--jet-black);
+    color: var(--dusty-pink);
 }
 nav {
     background-color: var(--dusty-pink);
     padding: 10px;
     display: flex;
     align-items: center;
+    padding:0.1em;
+    border-radius: 10%;
+}
+nav a{
+    margin-right: 15px;
+    text-decoration: none;
+    color: var(--jet-black);
+    background-color: var(--dusty-pink);
+    font-weight: bold;
 }
 
 nav a {
@@ -23,18 +35,24 @@ nav a {
     font-weight: bold;
 }
 
+/*Pseudo-clasa*/
 nav a:hover {
     color: var(--dusty-pink);
     background-color: var(--berry);
     padding: 0.1em;
-
     border-radius: 10%;
 }
+/*Pseudo-element*/
 .nume-despre::first-letter {
-    font-size: 200%;
-    color: var(--berry);
+    font-size: 150%;
+    font: bold;
 }
-
+.container-video {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
 
 
 
