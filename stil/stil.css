@@ -1,0 +1,40 @@
+:root{
+    --berry: #89023e;
+    --dusty-pink: #ffd9da;
+    --jet-black: #30343f;
+    --carbon-black:#1b2021;
+}
+
+/* Font global pentru tot site-ul */
+* {
+    font-family: "Playfair Display", serif;
+}
+nav {
+    background-color: var(--dusty-pink);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: var(--jet-black);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--dusty-pink);
+    background-color: var(--berry);
+    padding: 0.1em;
+
+    border-radius: 10%;
+}
+.nume-despre::first-letter {
+    font-size: 200%;
+    color: var(--berry);
+}
+
+
+
+
