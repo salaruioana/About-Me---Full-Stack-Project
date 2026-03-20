@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acasă</title>
+    <link rel="stylesheet" type="text/css" href="stil/stil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <img src="./imagini/logo.png" alt="Logo" height="50">
+        <a href="index.html">Acasă</a>
+        <a href="video.html">Video</a>
+        <a href="inregistreaza.html">Formular</a>
+        <a href="despre.html">Despre</a>
+        <a href="desen.html">Desen</a>
+        <a href="invat.html">Învăț</a>
+    </nav>
+
+    <div class="page-layout">
+        <aside class="side-menu">
+            <h3>Meniu</h3>
+            <a href="#sectiunea1">Ce știe Ioana despre tine</a>
+            <a href="#sectiunea2">Resurse utile pentru învățare</a>
+            <a href="#sectiunea3">Alte resurse</a>
+        </aside>
+        <div class="page-content">
+            <section id="sectiunea1">
+                <h2>Ce știe Ioana despre tine</h2>
+
+                <p>Informațiile detectate automat de browser:</p>
+
+                <ul class="info-list">
+                    <li><strong>Data și ora curentă:</strong> <span id="data"></span></li>
+                    <li><strong>Adresa URL:</strong> <span id="url"></span></li>
+                    <li><strong>Numele și versiunea browser-ului:</strong> <span id="browser"></span></li>
+                    <li><strong>Sistemul de operare:</strong> <span id="os"></span></li>
+                    <li><strong>Locația curentă:</strong> <span id="locatie"></span></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <hr>
+        <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
