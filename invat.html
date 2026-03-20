@@ -26,7 +26,7 @@
         <aside class="side-menu">
             <h3>Meniu</h3>
             <a href="#sectiunea1">Ce știe Ioana despre tine</a>
-            <a href="#sectiunea2">Resurse utile pentru învățare</a>
+            <a href="#sectiunea2">Desenează pe canvas</a>
             <a href="#sectiunea3">Alte resurse</a>
         </aside>
         <div class="page-content">
@@ -42,6 +42,24 @@
                     <li><strong>Sistemul de operare:</strong> <span id="os"></span></li>
                     <li><strong>Locația curentă:</strong> <span id="locatie"></span></li>
                 </ul>
+            </section>
+            <section id="sectiunea2">
+                <h2>Desenează pe canvas</h2>
+                <p>Apasă de două ori pe canvas pentru a desena un dreptunghi.</p>
+
+                <div class="canvas-controale">
+                    <label for="culoareContur">Culoare contur:</label>
+                    <input type="color" id="culoareContur" value="#e8b4c8">
+
+                    <label for="culoareUmplere">Culoare umplere:</label>
+                    <input type="color" id="culoareUmplere" value="#7b3f6e">
+
+                    <button onclick="reseteazaCanvas()">Resetează</button>
+                </div>
+
+                <canvas id="canvasDesen"></canvas>
+
+                <p id="mesajCanvas">Click 1: primul colț</p>
             </section>
         </div>
     </div>
