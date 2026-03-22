@@ -39,8 +39,6 @@ var primuClick = null;
 var canvas = document.getElementById("canvasDesen");
 var ctx = canvas.getContext("2d");
 
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
 
 // la fiecare click pe canvas
 canvas.addEventListener("click", function(event) {
@@ -75,4 +73,58 @@ function reseteazaCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     primuClick = null;
     document.getElementById("mesajCanvas").textContent = "Click 1: primul colț";
+}
+
+// sectiunea 3
+
+
+function adaugaLinie() {
+    var tabel = document.getElementById("tabelCarti");
+    var pozitie = parseInt(document.getElementById("pozitie").value);
+    var culoare = document.getElementById("culoareTabel").value;
+
+    // verificam ca pozitia e valida
+    var nrLinii = tabel.rows.length;
+    if (pozitie < 1 || pozitie > nrLinii + 1) {
+        document.getElementById("mesajTabel").textContent = "Poziție invalidă! Tabelul are " + nrLinii + " linii.";
+        return;
+    }
+
+    // cream linia noua
+    var linieNoua = tabel.insertRow(pozitie);
+
+    // aflam cate coloane are tabelul
+    var nrColoane = tabel.rows[0].cells.length;
+
+    // adaugam celule goale cu culoarea aleasa
+    for (var i = 0; i < nrColoane; i++) {
+        var celula = linieNoua.insertCell(i);
+        celula.textContent = "-";
+        celula.style.backgroundColor = culoare;
+    }
+
+    document.getElementById("mesajTabel").textContent = "Linie adăugată la poziția " + pozitie + ".";
+}
+
+function adaugaColoana() {
+    var tabel = document.getElementById("tabelCarti");
+    var pozitie = parseInt(document.getElementById("pozitie").value);
+    var culoare = document.getElementById("culoareTabel").value;
+
+    // verificam ca pozitia e valida
+    var nrColoane = tabel.rows[0].cells.length;
+    if (pozitie < 1 || pozitie > nrColoane + 1) {
+        document.getElementById("mesajTabel").textContent = "Poziție invalidă! Tabelul are " + nrColoane + " coloane.";
+        return;
+    }
+
+    // parcurgem fiecare linie si adaugam o celula la pozitia data
+    for (var i = 0; i < tabel.rows.length; i++) {
+        var celula = tabel.rows[i].insertCell(pozitie);
+        celula.textContent = "-";
+        // aplicam culoarea pe fiecare celula individual
+        celula.style.backgroundColor = culoare;
+    }
+
+    document.getElementById("mesajTabel").textContent = "Coloană adăugată la poziția " + pozitie + ".";
 }

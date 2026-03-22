@@ -27,7 +27,7 @@
             <h3>Meniu</h3>
             <a href="#sectiunea1">Ce știe Ioana despre tine</a>
             <a href="#sectiunea2">Desenează pe canvas</a>
-            <a href="#sectiunea3">Alte resurse</a>
+            <a href="#sectiunea3">Cărțile preferate ale Ioanei</a>
         </aside>
         <div class="page-content">
             <section id="sectiunea1">
@@ -60,6 +60,68 @@
                 <canvas id="canvasDesen"></canvas>
 
                 <p id="mesajCanvas">Click 1: primul colț</p>
+            </section>
+            <section id="sectiunea3">
+                <h2>Cărțile mele preferate</h2>
+                <p>Tabelul poate fi modificat dinamic: poți adăuga linii și coloane noi.</p>
+
+                <table id="tabelCarti">
+                    <tr>
+                        <th>Titlu</th>
+                        <th>Autor</th>
+                        <th>An</th>
+                        <th>Gen</th>
+                    </tr>
+                    <tr>
+                        <td>Pânza de păianjen</td>
+                        <td>Cella Serghi</td>
+                        <td>1938</td>
+                        <td>Roman interbelic</td>
+                    </tr>
+                    <tr>
+                        <td>Istoria secretă</td>
+                        <td>Donna Tartt</td>
+                        <td>1992</td>
+                        <td>Nuvelă fictivă</td>
+                    </tr>
+                    <tr>
+                        <td>Leagănul pisicii</td>
+                        <td>Kurt Vonnegut</td>
+                        <td>1963</td>
+                        <td>Nuvelă postbelică satirică</td>
+                    </tr>
+                    <tr>
+                        <td>Circe</td>
+                        <td>Madeline Miller</td>
+                        <td>2018</td>
+                        <td>Nuvelă mitică</td>
+                    </tr>
+                    <tr>
+                        <td>Maestrul si Margareta</td>
+                        <td>Mikhail Bulgakov</td>
+                        <td>1930</td>
+                        <td>Roman realist-magic</td>
+                    </tr>
+                    <tr>
+                        <td>Femeile lui Lazăr</td>
+                        <td>Marina Stepnova</td>
+                        <td>1993</td>
+                        <td>Roman fictiv</td>
+                    </tr>
+                </table>
+
+                <div class="tabel-controale">
+                    <label for="pozitie">Poziție (număr linie/coloană):</label>
+                    <input type="number" id="pozitie" min="1" value="1">
+
+                    <label for="culoareTabel">Culoare fundal:</label>
+                    <input type="color" id="culoareTabel" value="#7b3f6e">
+
+                    <input type="button" value="Adaugă linie" onclick="adaugaLinie()">
+                    <input type="button" value="Adaugă coloană" onclick="adaugaColoana()">
+                </div>
+
+                <p id="mesajTabel" style="margin-top: 8px;"></p>
             </section>
         </div>
     </div>
