@@ -44,8 +44,8 @@ var ctx = canvas.getContext("2d");
 canvas.addEventListener("click", function(event) {
     // poziția mouseului relativ la canvas
     var rect = canvas.getBoundingClientRect();
-    var x = event.clientX - rect.left;
-    var y = event.clientY - rect.top;
+    var x = (event.clientX - rect.left) * (canvas.width / rect.width);
+    var y = (event.clientY - rect.top) * (canvas.height / rect.height);
 
     if (primuClick === null) {
         // primul click: memorăm punctul
