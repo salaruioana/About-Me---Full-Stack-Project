@@ -1,16 +1,13 @@
 import socket
 import os
+import gzip
+import threading
 
-serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serversocket.bind(('', 5678))
-serversocket.listen(5)
+def proceseaza_client(clientsocket, address):
+    print(f"Client conectat: {address}")
 
-while True:
-    print('#########################################################################')
-    (clientsocket, address) = serversocket.accept()
-
-    cerere = ''
-    linieDeStart = ''
+    cerere = "" 
+    linieDeStart = ""
     while True:
         data = clientsocket.recv(1024)
         cerere = cerere + data.decode()
@@ -25,8 +22,9 @@ while True:
     parti = linieDeStart.split()
     if len(parti) < 2:
         clientsocket.close()
-        continue
-
+        print("Cerere invalidă-conexiune inchisă.")
+        return 
+    
     resursa = parti[1]
     # Construim calea corectă către folderul 'continut'
     if resursa == '/':
@@ -48,14 +46,17 @@ while True:
             case "png":  mime_type = "image/png"
             case "jpg":  mime_type = "image/jpeg"
             case "ico":  mime_type = "image/x-icon"
+        
+        continut_comprimat = gzip.compress(continut_fisier)
             
         raspuns = "HTTP/1.1 200 OK\r\n"
         raspuns += "Content-Type: " + mime_type + "\r\n"
-        raspuns += "Content-Length: " + str(len(continut_fisier)) + "\r\n"
+        raspuns += "Content-Encoding: gzip\r\n"
+        raspuns += "Content-Length: " + str(len(continut_comprimat)) + "\r\n"
         raspuns += "Connection: close\r\n\r\n"
 
         clientsocket.sendall(raspuns.encode())
-        clientsocket.sendall(continut_fisier) # continut_fisier e deja bytes, nu mai dam .encode()
+        clientsocket.sendall(continut_comprimat) # continut_fisier e deja bytes, nu mai dam .encode()
 
     except FileNotFoundError:
         raspuns_404 = "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n"
@@ -64,3 +65,15 @@ while True:
 
     clientsocket.close()
     print('S-a terminat comunicarea.')
+
+serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serversocket.bind(('', 5678))
+serversocket.listen(5)
+
+while True:
+    print('#########################################################################')
+    (clientsocket, address) = serversocket.accept()
+
+    #thread pentru fiecare client
+    t = threading.Thread(target=proceseaza_client,args = (clientsocket,address))
+    t.start()
