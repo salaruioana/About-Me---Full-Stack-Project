@@ -1,80 +1,55 @@
-<!DOCTYPE html>
-<html>
-     <head>
-        <meta charset="UTF-8">
-        <title>Acasă</title>
-        <link rel="stylesheet" type="text/css" href="stil/stil.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
-    <body>
-        <nav>
-            <img src ="./imagini/logo.png" alt="Logo" height="50">
-            <a href="index.html">Acasă</a>
-            <a href="video.html">Video</a>
-            <a href="inregistreaza.html">Formular</a>
-            <a href="despre.html">Despre</a>
-            <a href="desen.html">Desen</a>
-            <a href="invat.html">Învăț</a>
-        </nav>
-        <section>
-             <h1>Formular pentru solicitarea unui profil astrologic realizat de Ioana</h1>
-             <form>
-                <fieldset>
-                    <legend>Informații generale</legend>
-                    <label for="username">Nume utilizator:</label>
-                    <input type="text" id="username" name="username" required><br><br>
-                    <label for="parola">Parola:</label>
-                    <input type="password" id="parola" name="parola" required><br><br>
-                    <label for="nume">Nume:</label>
-                    <input type="text" id="nume" name="nume" ><br><br>
-                    <label for="prenume">Prenume:</label>
-                    <input type="text" id="prenume" name="prenume" ><br><br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email"><br><br>
-                    <label for="telefon">Număr de telefon:</label>
-                    <input type="phone" id="telefon" name="telefon" placeholder="Introduceți numărul de telefon" ><br><br>
-                </fieldset>
-                <br>
-                <fieldset>
-                    <legend>Informații personale</legend>
-                    <select id="gen" name="gen" required>
-                        <option value="">Selectați genul</option>
-                        <option value="masculin">Masculin</option>
-                        <option value="feminin">Feminin</option>
-                        <option value="altul">Mă identific altfel</option>
-                    </select><br>
-                    <label for="mancare">Mâncarea preferată:</label>
-                    <input type="text" id="mancare" list="mancarePreferata">
-                    <datalist id="mancarePreferata">Mâncarea preferată:
-                        <option value="Pizza">Pizza</option>
-                        <option value="Paste">Paste</option>
-                        <option value="Șaorma">Șaorma</option>
-                        <option value="Salată">Salată</option>
-                        <option value="Fructe de mare">Fructe de mare</option>
-                        <option value="Burgeri">Burgeri</option>
-                        <option value = "Lapte cu cereale">Lapte cu cereale</option>
-                        <option value="Sushi">Sushi</option>
-                        <option value="Tocături">Tocături</option>
-                    </datalist>
-                    <label for="data_nasterii">Data nașterii:</label>
-                    <input type="date" id="data_nasterii" name="data_nasterii" required><br><br>
-                    <label for="ora_nasterii">Ora nașterii:</label>
-                    <input type="time" id="ora_nasterii" name="ora_nasterii" required><br><br>
-                    <label for = "varsta">Vârsta:</label>
-                    <input type="range" id="varsta" name="varsta" min="0" max="100"><br><br>
-                    <label for="adresa_paginii_personale">Adresa paginii personale de social media:</label>
-                    <input type="url" id="adresa_paginii_personale" name="adresa_paginii_personale" placeholder="Introduceți adresa paginii personale de social media: "><br><br>
-                    <label for="motiv">Motivul solicitării profilului astrologic:</label><br>
-                    <textarea id="motiv" name="motiv" rows="4" cols="50"></textarea><br><br>
-                </fieldset>
-                <button type="button" disabled>Trimite cererea</button>
-             </form>
-        </section>
-        <footer>
-            <hr>
-            <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
-        </footer>
-</html>
+<main>
+    <h1>Formular pentru solicitarea unui profil astrologic realizat de Ioana</h1>
+    <form>
+        <fieldset>
+            <legend>Informații generale</legend>
+            <label for="username">Nume utilizator:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="parola">Parola:</label>
+            <input type="password" id="parola" name="parola" required><br><br>
+            <label for="nume">Nume:</label>
+            <input type="text" id="nume" name="nume"><br><br>
+            <label for="prenume">Prenume:</label>
+            <input type="text" id="prenume" name="prenume"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="telefon">Număr de telefon:</label>
+            <input type="phone" id="telefon" name="telefon" placeholder="Introduceți numărul de telefon"><br><br>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Informații personale</legend>
+            <select id="gen" name="gen" required>
+                <option value="">Selectați genul</option>
+                <option value="masculin">Masculin</option>
+                <option value="feminin">Feminin</option>
+                <option value="altul">Mă identific altfel</option>
+            </select><br>
+            <label for="mancare">Mâncarea preferată:</label>
+            <input type="text" id="mancare" list="mancarePreferata">
+            <datalist id="mancarePreferata">Mâncarea preferată:
+                <option value="Pizza">Pizza</option>
+                <option value="Paste">Paste</option>
+                <option value="Șaorma">Șaorma</option>
+                <option value="Salată">Salată</option>
+                <option value="Fructe de mare">Fructe de mare</option>
+                <option value="Burgeri">Burgeri</option>
+                <option value="Lapte cu cereale">Lapte cu cereale</option>
+                <option value="Sushi">Sushi</option>
+                <option value="Tocături">Tocături</option>
+            </datalist>
+            <label for="data_nasterii">Data nașterii:</label>
+            <input type="date" id="data_nasterii" name="data_nasterii" required><br><br>
+            <label for="ora_nasterii">Ora nașterii:</label>
+            <input type="time" id="ora_nasterii" name="ora_nasterii" required><br><br>
+            <label for="varsta">Vârsta:</label>
+            <input type="range" id="varsta" name="varsta" min="0" max="100"><br><br>
+            <label for="adresa_paginii_personale">Adresa paginii personale de social media:</label>
+            <input type="url" id="adresa_paginii_personale" name="adresa_paginii_personale"
+                placeholder="Introduceți adresa paginii personale de social media: "><br><br>
+            <label for="motiv">Motivul solicitării profilului astrologic:</label><br>
+            <textarea id="motiv" name="motiv" rows="4" cols="50"></textarea><br><br>
+        </fieldset>
+        <button type="button" disabled>Trimite cererea</button>
+    </form>
+</main>

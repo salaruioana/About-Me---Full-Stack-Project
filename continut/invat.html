@@ -1,135 +1,103 @@
-<!DOCTYPE html>
-<html>
+<main class="page-layout">
+    <aside class="side-menu">
+        <h3>Meniu</h3>
+        <a href="#sectiunea1">Ce știe Ioana despre tine</a>
+        <a href="#sectiunea2">Desenează pe canvas</a>
+        <a href="#sectiunea3">Cărțile preferate ale Ioanei</a>
+    </aside>
+    <div class="page-content">
+        <section id="sectiunea1">
+            <h2>Ce știe Ioana despre tine</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Acasă</title>
-    <link rel="stylesheet" type="text/css" href="stil/stil.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+            <p>Informațiile detectate automat de browser:</p>
 
-<body>
-    <nav>
-        <img src="./imagini/logo.png" alt="Logo" height="50">
-        <a href="index.html">Acasă</a>
-        <a href="video.html">Video</a>
-        <a href="inregistreaza.html">Formular</a>
-        <a href="despre.html">Despre</a>
-        <a href="desen.html">Desen</a>
-        <a href="invat.html">Învăț</a>
-    </nav>
+            <ul class="info-list">
+                <li><strong>Data și ora curentă:</strong> <span id="data"></span></li>
+                <li><strong>Adresa URL:</strong> <span id="url"></span></li>
+                <li><strong>Numele și versiunea browser-ului:</strong> <span id="browser"></span></li>
+                <li><strong>Sistemul de operare:</strong> <span id="os"></span></li>
+                <li><strong>Locația curentă:</strong> <span id="locatie"></span></li>
+            </ul>
+        </section>
+        <section id="sectiunea2">
+            <h2>Desenează pe canvas</h2>
+            <p>Apasă de două ori pe canvas pentru a desena un dreptunghi.</p>
 
-    <div class="page-layout">
-        <aside class="side-menu">
-            <h3>Meniu</h3>
-            <a href="#sectiunea1">Ce știe Ioana despre tine</a>
-            <a href="#sectiunea2">Desenează pe canvas</a>
-            <a href="#sectiunea3">Cărțile preferate ale Ioanei</a>
-        </aside>
-        <div class="page-content">
-            <section id="sectiunea1">
-                <h2>Ce știe Ioana despre tine</h2>
+            <div class="canvas-controale">
+                <label for="culoareContur">Culoare contur:</label>
+                <input type="color" id="culoareContur" value="#e8b4c8">
 
-                <p>Informațiile detectate automat de browser:</p>
+                <label for="culoareUmplere">Culoare umplere:</label>
+                <input type="color" id="culoareUmplere" value="#7b3f6e">
 
-                <ul class="info-list">
-                    <li><strong>Data și ora curentă:</strong> <span id="data"></span></li>
-                    <li><strong>Adresa URL:</strong> <span id="url"></span></li>
-                    <li><strong>Numele și versiunea browser-ului:</strong> <span id="browser"></span></li>
-                    <li><strong>Sistemul de operare:</strong> <span id="os"></span></li>
-                    <li><strong>Locația curentă:</strong> <span id="locatie"></span></li>
-                </ul>
-            </section>
-            <section id="sectiunea2">
-                <h2>Desenează pe canvas</h2>
-                <p>Apasă de două ori pe canvas pentru a desena un dreptunghi.</p>
+                <button onclick="reseteazaCanvas()">Resetează</button>
+            </div>
 
-                <div class="canvas-controale">
-                    <label for="culoareContur">Culoare contur:</label>
-                    <input type="color" id="culoareContur" value="#e8b4c8">
+            <canvas id="canvasDesen"></canvas>
 
-                    <label for="culoareUmplere">Culoare umplere:</label>
-                    <input type="color" id="culoareUmplere" value="#7b3f6e">
+            <p id="mesajCanvas">Click 1: primul colț</p>
+        </section>
+        <section id="sectiunea3">
+            <h2>Cărțile mele preferate</h2>
+            <p>Tabelul poate fi modificat dinamic: poți adăuga linii și coloane noi.</p>
 
-                    <button onclick="reseteazaCanvas()">Resetează</button>
-                </div>
+            <table id="tabelCarti">
+                <tr>
+                    <th>Titlu</th>
+                    <th>Autor</th>
+                    <th>An</th>
+                    <th>Gen</th>
+                </tr>
+                <tr>
+                    <td>Pânza des păianjen</td>
+                    <td>Cella Serghi</td>
+                    <td>1938</td>
+                    <td>Roman interbelic</td>
+                </tr>
+                <tr>
+                    <td>Istoria secretă</td>
+                    <td>Donna Tartt</td>
+                    <td>1992</td>
+                    <td>Nuvelă fictivă</td>
+                </tr>
+                <tr>
+                    <td>Leagănul pisicii</td>
+                    <td>Kurt Vonnegut</td>
+                    <td>1963</td>
+                    <td>Nuvelă postbelică satirică</td>
+                </tr>
+                <tr>
+                    <td>Circe</td>
+                    <td>Madeline Miller</td>
+                    <td>2018</td>
+                    <td>Nuvelă mitică</td>
+                </tr>
+                <tr>
+                    <td>Maestrul si Margareta</td>
+                    <td>Mikhail Bulgakov</td>
+                    <td>1930</td>
+                    <td>Roman realist-magic</td>
+                </tr>
+                <tr>
+                    <td>Femeile lui Lazăr</td>
+                    <td>Marina Stepnova</td>
+                    <td>1993</td>
+                    <td>Roman fictiv</td>
+                </tr>
+            </table>
 
-                <canvas id="canvasDesen"></canvas>
+            <div class="tabel-controale">
+                <label for="pozitie">Poziție (număr linie/coloană):</label>
+                <input type="number" id="pozitie" min="1" value="1">
 
-                <p id="mesajCanvas">Click 1: primul colț</p>
-            </section>
-            <section id="sectiunea3">
-                <h2>Cărțile mele preferate</h2>
-                <p>Tabelul poate fi modificat dinamic: poți adăuga linii și coloane noi.</p>
+                <label for="culoareTabel">Culoare fundal:</label>
+                <input type="color" id="culoareTabel" value="#7b3f6e">
 
-                <table id="tabelCarti">
-                    <tr>
-                        <th>Titlu</th>
-                        <th>Autor</th>
-                        <th>An</th>
-                        <th>Gen</th>
-                    </tr>
-                    <tr>
-                        <td>Pânza de păianjen</td>
-                        <td>Cella Serghi</td>
-                        <td>1938</td>
-                        <td>Roman interbelic</td>
-                    </tr>
-                    <tr>
-                        <td>Istoria secretă</td>
-                        <td>Donna Tartt</td>
-                        <td>1992</td>
-                        <td>Nuvelă fictivă</td>
-                    </tr>
-                    <tr>
-                        <td>Leagănul pisicii</td>
-                        <td>Kurt Vonnegut</td>
-                        <td>1963</td>
-                        <td>Nuvelă postbelică satirică</td>
-                    </tr>
-                    <tr>
-                        <td>Circe</td>
-                        <td>Madeline Miller</td>
-                        <td>2018</td>
-                        <td>Nuvelă mitică</td>
-                    </tr>
-                    <tr>
-                        <td>Maestrul si Margareta</td>
-                        <td>Mikhail Bulgakov</td>
-                        <td>1930</td>
-                        <td>Roman realist-magic</td>
-                    </tr>
-                    <tr>
-                        <td>Femeile lui Lazăr</td>
-                        <td>Marina Stepnova</td>
-                        <td>1993</td>
-                        <td>Roman fictiv</td>
-                    </tr>
-                </table>
+                <input type="button" value="Adaugă linie" onclick="adaugaLinie()">
+                <input type="button" value="Adaugă coloană" onclick="adaugaColoana()">
+            </div>
 
-                <div class="tabel-controale">
-                    <label for="pozitie">Poziție (număr linie/coloană):</label>
-                    <input type="number" id="pozitie" min="1" value="1">
-
-                    <label for="culoareTabel">Culoare fundal:</label>
-                    <input type="color" id="culoareTabel" value="#7b3f6e">
-
-                    <input type="button" value="Adaugă linie" onclick="adaugaLinie()">
-                    <input type="button" value="Adaugă coloană" onclick="adaugaColoana()">
-                </div>
-
-                <p id="mesajTabel" style="margin-top: 8px;"></p>
-            </section>
-        </div>
+            <p id="mesajTabel" style="margin-top: 8px;"></p>
+        </section>
     </div>
-    <footer>
-        <hr>
-        <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
-    </footer>
-    <script src="js/script.js"></script>
-</body>
-
-</html>
+</main>

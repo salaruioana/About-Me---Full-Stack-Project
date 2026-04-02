@@ -8,36 +8,47 @@
 
 <!DOCTYPE html>
 <html>
-     <head>
-        <meta charset="UTF-8">
-        <title>Acasă</title>
-        <link rel="stylesheet" type="text/css" href="stil/stil.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
-    <body>
-        <nav>
-            <img src ="./imagini/logo.png" alt="Logo" height="50">
-            <a href="index.html">Acasă</a>
-            <a href="video.html">Video</a>
-            <a href="inregistreaza.html">Formular</a>
-            <a href="despre.html">Despre</a>
-            <a href="desen.html">Desen</a>
-            <a href="invat.html">Învăț</a>
-        </nav>
-       
-        <section>
-        <p><strong>Secțiunea Acasă</strong> conține informații despre modalitatea de navigare pe site.</p>
-        <p><strong>Sectiunea Despre</strong> conține informații despre Ioana și pasiunile ei.</p>
-        <p><strong>Sectiunea Video</strong> conține videoclipuri selectate de Ioana săptămânal.</p>
-        <p><strong>Secțiunea Formular</strong> conține formularul pentru solicitarea unui profil astrologic.</p>
-        <p><strong>Sectiunea Desen</strong> conține un desen SVG creat de Ioana.</p>
-        <p><strong>Sectiunea Învăț</strong> conține diverse resurse utile puse la dispoziție pentru utilizatorii acestui site.</p>
-        </section>
-        <footer>
-            <hr>
-            <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
-        </footer>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Acasă</title>
+    <link rel="stylesheet" type="text/css" href="stil/stil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+        function schimbaContinut(resursa) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("continut").innerHTML = this.responseText;
+                }
+            };
+            // Cerem resursa "nume.html"
+            xhttp.open("GET", resursa + ".html", true);
+            xhttp.send();
+        } 
+    </script>
+</head>
+
+<body>
+    <nav>
+        <img src="./imagini/logo.png" alt="Logo" height="50">
+        <a href="#" onclick="schimbaContinut('acasa')">Acasă</a>
+        <a href="#" onclick="schimbaContinut('video')">Video</a>
+        <a href="#" onclick="schimbaContinut('inregistreaza')">Formular</a>
+        <a href="#" onclick="schimbaContinut('despre')">Despre</a>
+        <a href="#" onclick="schimbaContinut('desen')">Desen</a>
+        <a href="#" onclick="schimbaContinut('invat')">Învăț</a>
+    </nav>
+
+    <main id="continut">
+    </main>
+    <footer>
+        <hr>
+        <p>&copy; 2026 Ioana Șalaru. Toate drepturile rezervate.</p>
+    </footer>
+
 </html>
