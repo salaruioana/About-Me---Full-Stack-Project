@@ -67,6 +67,8 @@ def proceseaza_client(clientsocket, address):
             "jpeg": "image/jpeg",
             "gif": "image/gif",
             "ico": "image/x-icon",
+            'xml': 'application/xml; charset=utf-8',
+    		'json': 'application/json; charset=utf-8'
         }.get(extensie, "application/octet-stream")
 
         continut_comprimat = gzip.compress(continut_fisier)
