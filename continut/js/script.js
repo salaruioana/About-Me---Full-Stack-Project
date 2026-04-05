@@ -128,3 +128,34 @@ function adaugaColoana() {
 
     document.getElementById("mesajTabel").textContent = "Coloană adăugată la poziția " + pozitie + ".";
 }
+
+// pentru inregistreaza.html
+function trimiteDate() {
+    const utilizator = {
+        utilizator: document.getElementById("utilizator").value,
+        parola: document.getElementById("parola").value,
+        nume: document.getElementById("nume").value,
+        prenume: document.getElementById("prenume").value,
+        email: document.getElementById("email").value,
+        telefon: document.getElementById("telefon").value,
+        gen: document.getElementById("gen").value,
+        mancare: document.getElementById("mancare").value,
+        data_nasterii: document.getElementById("data_nasterii").value,
+        ora_nasterii: document.getElementById("ora_nasterii").value,
+        varsta: document.getElementById("varsta").value,
+        adresa_paginii: document.getElementById("adresa_paginii_personale").value,
+        motiv: document.getElementById("motiv").value
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/api/utilizatori", true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            alert("Răspuns server: " + this.responseText);
+        }
+    };
+
+    xhttp.send(JSON.stringify(utilizator));
+}

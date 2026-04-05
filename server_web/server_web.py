@@ -2,6 +2,7 @@ import socket
 import os
 import gzip
 import threading
+import json
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 5678))
@@ -37,6 +38,62 @@ def proceseaza_client(clientsocket, address):
             return
 
         resursa = parti[1]
+        metoda = parti[0]
+
+
+        if metoda == "POST" and resursa == "/api/utilizatori":
+            # citire headere + body
+            while "\r\n\r\n" not in cerere:
+                cerere += clientsocket.recv(1024).decode()
+
+            headers, body = cerere.split("\r\n\r\n", 1)
+
+            lungime = 0
+            for linie in headers.split("\r\n"):
+                if linie.lower().startswith("content-length:"):
+                    lungime = int(linie.split(":")[1].strip())
+
+            body_bytes = body.encode()
+            while len(body_bytes) < lungime:
+                chunk = clientsocket.recv(1024)
+                if not chunk: break
+                body_bytes+= chunk
+            body_final = body_bytes.decode('utf-8')
+
+            try:
+                nou_utilizator = json.loads(body_final)
+
+                # încarcă utilizatori.json
+                with open("../continut/resurse/utilizatori.json", "r", encoding="utf-8") as f:
+                    lista = json.load(f)
+
+                # adaugă utilizatorul
+                lista.append(nou_utilizator)
+
+                # scrie înapoi
+                with open("../continut/resurse/utilizatori.json", "w", encoding="utf-8") as f:
+                    json.dump(lista, f, indent=4, ensure_ascii=False)
+
+                raspuns = (
+                    "HTTP/1.1 200 OK\r\n"
+                    "Content-Type: text/plain\r\n"
+                    "Content-Length: 17\r\n"
+                    "Connection: close\r\n\r\n"
+                    "Utilizator salvat"
+                )
+
+                clientsocket.sendall(raspuns.encode())
+                clientsocket.close()
+                return
+
+            except Exception as e:
+                print("Eroare la procesare POST:", e)
+                raspuns = "HTTP/1.1 500 Internal Server Error\r\n\r\n"
+                clientsocket.sendall(raspuns.encode())
+                clientsocket.close()
+                return
+
+    
         if resursa == "/":
             resursa = "/index.html"
 
@@ -67,8 +124,8 @@ def proceseaza_client(clientsocket, address):
             "jpeg": "image/jpeg",
             "gif": "image/gif",
             "ico": "image/x-icon",
-            'xml': 'application/xml; charset=utf-8',
-    		'json': 'application/json; charset=utf-8'
+            "xml": "application/xml; charset=utf-8",
+            "json": "application/json; charset=utf-8"
         }.get(extensie, "application/octet-stream")
 
         continut_comprimat = gzip.compress(continut_fisier)
@@ -90,9 +147,8 @@ def proceseaza_client(clientsocket, address):
     clientsocket.close()
     print("Conexiune închisă.\n")
 
-while True:
-    (clientsocket, address) = serversocket.accept()
 
+while True:
+    clientsocket, address = serversocket.accept()
     t = threading.Thread(target=proceseaza_client, args=(clientsocket, address))
     t.start()
-

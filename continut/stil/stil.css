@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     font-family: "Playfair Display", serif;
+    overflow-wrap: break-word;
 }
 
 body {
@@ -79,8 +80,14 @@ ol li {
 }
 
 /* sectiuni generale */
-main, section {
-    max-width: 860px;
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section, .Tema1, .Tema1, .Tema3 {
+    max-width: 1200px;
     width: 100%;
     margin: 20px auto;
     padding: 20px;
@@ -95,6 +102,7 @@ table {
     border-collapse: collapse;
     margin: 15px 0;
 }
+
 
 td, th {
     padding: 10px;
@@ -176,7 +184,6 @@ footer {
     gap: 20px;
     justify-content: center;
     margin: 20px auto;
-    max-width: 1100px;
 }
 
 .item-video {
@@ -202,6 +209,9 @@ footer {
     overflow-x: auto;
     gap: 14px;
     padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    scrollbar-width: thin; 
 }
 
 .galerie-scroll img {

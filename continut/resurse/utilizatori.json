@@ -1,0 +1,21 @@
+[
+    {
+        "utilizator": "test",
+        "parola": "test"
+    },
+    {
+        "utilizator": "ioananana",
+        "parola": "parolagrea",
+        "nume": "salaru",
+        "prenume": "ioana",
+        "email": "is@dom,com",
+        "telefon": "0767676767",
+        "gen": "feminin",
+        "mancare": "Șaorma",
+        "data_nasterii": "2004-04-30",
+        "ora_nasterii": "01:45",
+        "varsta": "23",
+        "adresa_paginii": "https://www.linkedin.com/in/ioana-salaru-586a01326/",
+        "motiv": "De curiozitate"
+    }
+]
