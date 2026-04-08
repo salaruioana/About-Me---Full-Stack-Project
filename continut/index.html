@@ -19,7 +19,6 @@
                     if (jsFisier) {
                         var elementScript = document.createElement('script');
                         elementScript.onload = function () {
-                            console.log("hello");
                             if (jsFunctie) {
                                 window[jsFunctie]();
                             }
@@ -49,6 +48,7 @@
         <a href="#" onclick="schimbaContinut('desen')">Desen</a>
         <a href="#" onclick="schimbaContinut('invat','js/script.js')">Învăț</a>
         <a href="#" onclick="schimbaContinut('persoane','js/persoane.js','incarcaPersoane')">Persoane</a>
+        <a href="#" onclick="schimbaContinut('cumparaturi','js/cumparaturi.js','initCumparaturi'); return false;">Cumpărături</a>
     </nav>
 
     <main id="continut">
