@@ -7,25 +7,37 @@ function initCumparaturi() {
         }
     }
 
+    const worker = new Worker('js/worker.js');
+
     const saveProduct = (produs) => {
         let lista = JSON.parse(localStorage.getItem("cumparaturi")) || [];
         lista.push(produs);
         localStorage.setItem("cumparaturi", JSON.stringify(lista));
     };
 
-    const afiseazaProduse = () => {
+    const adaugaInTabel = (item) => {
+        const tbody = document.querySelector("#tabel-produse tbody");
+        const row = tbody.insertRow();
+        
+        row.insertCell(0).textContent = item.id;
+        row.insertCell(1).textContent = item.nume;
+        row.insertCell(2).textContent = item.cantitate;
+    };
+
+    const afiseazaProduseInitiale = () => {
         const lista = JSON.parse(localStorage.getItem("cumparaturi")) || [];
-        const ul = document.getElementById("lista-produse");
-        ul.innerHTML = "";
-        lista.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = `${item.id}. ${item.nume} - ${item.cantitate}`;
-            ul.appendChild(li);
-        });
+        const tbody = document.querySelector("#tabel-produse tbody");
+        tbody.innerHTML = "";
+        lista.forEach(item => adaugaInTabel(item));
+    };
+
+    worker.onmessage = function(e) {
+        const produsNou = e.data;
+        adaugaInTabel(produsNou);
     };
 
     const form = document.getElementById("form-cumparaturi");
-    afiseazaProduse();
+    afiseazaProduseInitiale();
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -36,8 +48,11 @@ function initCumparaturi() {
         const idNou = lista.length + 1;
 
         const produs = new Produs(idNou, nume, cantitate);
+
         saveProduct(produs);
-        afiseazaProduse();
+
+        worker.postMessage(produs);
+        
         form.reset();
     });
 }
