@@ -1,8 +1,6 @@
-<!--indicates that the elements and data types used in the schema come from the "http://www.w3.org/2001/XMLSchema"-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 
-<!--definire tip complex pentru adresa-->
   <xs:complexType name="tipAdresa">
     <xs:sequence>
       <xs:element name="strada" type="xs:string"/>
@@ -13,7 +11,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!--definire tip complex pentru job-->
   <xs:complexType name="tipJob">
     <xs:sequence>
       <xs:element name="companie" type="xs:string"/>
@@ -21,7 +18,6 @@
     </xs:sequence>
   </xs:complexType>
 
-   <!--definire tip complex pentru persoana-->
   <xs:complexType name="tipPersoana">
     <xs:sequence>
       <xs:element name="nume" type="xs:string"/>
@@ -36,7 +32,6 @@
   <xs:element name="persoane">
     <xs:complexType>
       <xs:sequence>
-        <!--persoane alcatuit din 0+ elemente persoana-->
         <xs:element name="persoana" type="tipPersoana" maxOccurs="unbounded"/>
       </xs:sequence>
     </xs:complexType>

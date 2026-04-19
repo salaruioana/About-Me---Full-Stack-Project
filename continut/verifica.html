@@ -1,37 +1,10 @@
 <h2>Verificare utilizator</h2>
 
+<section>
 Utilizator: <input id="user"><br><br>
 Parola: <input id="pass" type="password"><br><br>
 
 <button onclick="verifica()">Verifică</button>
 
 <p id="rezultat"></p>
-
-<script>
-function verifica() {
-
-    var x = new XMLHttpRequest();
-
-    x.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-
-            var lista = JSON.parse(this.responseText);
-
-            var u = document.getElementById("user").value;
-            var p = document.getElementById("pass").value;
-
-            var ok = false;
-
-            lista.forEach(item => {
-                if (item.utilizator == u && item.parola == p) ok = true;
-            });
-
-            document.getElementById("rezultat").innerHTML =
-                ok ? "Autentificare reușită!" : "Date greșite!";
-        }
-    };
-
-    x.open("GET", "resurse/utilizatori.json", true);
-    x.send();
-}
-</script>
+</section>

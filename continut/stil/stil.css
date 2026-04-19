@@ -24,10 +24,10 @@ body {
     flex-direction: column;
 }
 
-/* nav */
 nav {
     background: var(--dusty);
     display: flex;
+    flex-wrap:wrap;
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
@@ -53,7 +53,6 @@ nav a:hover {
     color: var(--dusty);
 }
 
-/* scris */
 h1 {
     color: var(--mid);
     margin-bottom: 15px;
@@ -79,7 +78,6 @@ ol li {
     margin-bottom: 6px;
 }
 
-/* sectiuni generale */
 main {
     width: 100%;
     display: flex;
@@ -96,7 +94,6 @@ section, .Tema1, .Tema1, .Tema3 {
     border: 1px solid var(--mid);
 }
 
-/* tabele */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -118,7 +115,6 @@ tr:hover {
     color: var(--dusty);
 }
 
-/* formulare */
 form {
     display: flex;
     flex-direction: column;
@@ -129,7 +125,7 @@ form {
 fieldset {
     border: 1px solid var(--mid);
     border-radius: 6px;
-    padding: 14px;
+    padding: 20px;
     background: var(--carbon);
 }
 
@@ -167,7 +163,6 @@ button:hover {
     color: var(--jet);
 }
 
-/* footer */
 footer {
     text-align: center;
     padding: 20px;
@@ -177,7 +172,6 @@ footer {
     margin-top: auto;
 }
 
-/* video */
 .container-video {
     display: flex;
     flex-wrap: wrap;
@@ -203,7 +197,6 @@ footer {
     border: none;
 }
 
-/* scroll galerie */
 .galerie-scroll {
     display: flex;
     overflow-x: auto;
@@ -222,7 +215,6 @@ footer {
     border-radius: 6px;
 }
 
-/* linkuri */
 .linkedin-link {
     font-weight: bold;
     color: var(--mid);
@@ -230,19 +222,16 @@ footer {
     border-bottom: 2px solid var(--berry);
 }
 
-/*hover- pseudoelement*/
 .linkedin-link:hover {
     color: var(--dusty);
 }
 
-/* prima litera - pseudoclasa */
 .nume-despre::first-letter {
     font-size: 150%;
     font-weight: bold;
     color: var(--mid);
 }
 
-/* info list */
 .info-list li {
     margin-bottom: 8px;
     padding: 8px;
@@ -251,7 +240,6 @@ footer {
     list-style: none;
 }
 
-/* Rlayout cu sidebar */
 .page-layout {
     display: flex;
     align-items: flex-start;
@@ -275,7 +263,6 @@ footer {
     max-width: 100%;
 }
 
-/* side menu */
 .side-menu {
     position: sticky;
     top: 80px;
@@ -310,10 +297,8 @@ footer {
     color: var(--dusty);
 }
 
-/* responsive mobil */
 @media (max-width: 650px) {
     nav {
-        flex-wrap: wrap;
         justify-content: center;
     }
 
@@ -343,7 +328,6 @@ footer {
     }
 }
 
-/* print */
 @media print {
     nav, .container-video {
         display: none;
@@ -367,7 +351,6 @@ footer {
     }
 }
 
-/* canvas desen */
 .canvas-controale {
     margin: 10px 0;
     display: flex;

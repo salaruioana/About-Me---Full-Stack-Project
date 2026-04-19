@@ -17,5 +17,50 @@
         "varsta": "23",
         "adresa_paginii": "https://www.linkedin.com/in/ioana-salaru-586a01326/",
         "motiv": "De curiozitate"
+    },
+    {
+        "utilizator": "selenana",
+        "parola": "nuoghicesti",
+        "nume": "Gomez",
+        "prenume": "Selena",
+        "email": "selena.artista@hollywood.us",
+        "telefon": "07asvreaeu",
+        "gen": "feminin",
+        "mancare": "Sushi",
+        "data_nasterii": "1989-08-07",
+        "ora_nasterii": "06:07",
+        "varsta": "39",
+        "adresa_paginii": "https://www.instagram.com/selenagomez/",
+        "motiv": "Pentru ca nu stiu daca Benito e potrivit pentru mine si caut raspunsul in stele"
+    },
+    {
+        "utilizator": "johnutzu",
+        "parola": "celmaipirat",
+        "nume": "Depp",
+        "prenume": "Johnny",
+        "email": "johny.john&h.com",
+        "telefon": "070707",
+        "gen": "masculin",
+        "mancare": "Șaorma",
+        "data_nasterii": "1975-04-04",
+        "ora_nasterii": "18:09",
+        "varsta": "57",
+        "adresa_paginii": "https://www.instagram.com/johnnydepp/",
+        "motiv": "Sa vad in ce film sa mai joc"
+    },
+    {
+        "utilizator": "IoanaSalaru",
+        "parola": "ceamaigreaparola",
+        "nume": "Salaru",
+        "prenume": "Ioana",
+        "email": "i.s@dom.com",
+        "telefon": "074444444444",
+        "gen": "feminin",
+        "mancare": "Șaorma",
+        "data_nasterii": "2004-04-30",
+        "ora_nasterii": "01:45",
+        "varsta": "21",
+        "adresa_paginii": "www.instagram.com/ioanasalaru",
+        "motiv": "sa vad daca imi fac treaba"
     }
 ]

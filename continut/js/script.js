@@ -1,81 +1,72 @@
-//script sectiunea 1
+function initInvat() {
+    userInfo();
+    initCanvas();
+}
 
-window.onload = function () {
-    // Data și ora curentă
+function userInfo() {
+    if (!document.getElementById("data")) return; 
+
     document.getElementById("data").innerHTML = new Date().toLocaleString();
-
-    // URL
     document.getElementById("url").innerHTML = window.location.href;
-
-    // Browser + OS
     document.getElementById("browser").innerHTML = navigator.userAgent;
     document.getElementById("os").innerHTML = navigator.platform;
 
-    // Locația curentă
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             function (pos) {
                 document.getElementById("locatie").innerHTML =
-                    pos.coords.latitude.toFixed(4) + ", " +
-                    pos.coords.longitude.toFixed(4);
+                    pos.coords.latitude.toFixed(4) + ", " + pos.coords.longitude.toFixed(4);
             },
             function () {
-                document.getElementById("locatie").innerHTML =
-                    "Nu ai permis accesul la locație";
+                document.getElementById("locatie").innerHTML = "Nu ai permis accesul la locație";
             }
         );
     } else {
-        document.getElementById("locatie").innerHTML =
-            "Geolocația nu este suportată";
+        document.getElementById("locatie").innerHTML = "Geolocația nu este suportată";
     }
-};
-
-//script secțiunea 2
+}
 
 
-// variabila care retine primul punct apasat
 var primuClick = null;
+function initCanvas() {
+    var canvas = document.getElementById("canvasDesen");
+    if (!canvas) return; 
 
-var canvas = document.getElementById("canvasDesen");
-var ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext("2d");
 
+    canvas.addEventListener("click", function(event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = (event.clientX - rect.left) * (canvas.width / rect.width);
+        var y = (event.clientY - rect.top) * (canvas.height / rect.height);
 
-// la fiecare click pe canvas
-canvas.addEventListener("click", function(event) {
-    // poziția mouseului relativ la canvas
-    var rect = canvas.getBoundingClientRect();
-    var x = (event.clientX - rect.left) * (canvas.width / rect.width);
-    var y = (event.clientY - rect.top) * (canvas.height / rect.height);
+        if (primuClick === null) {
+            primuClick = { x: x, y: y };
+            document.getElementById("mesajCanvas").textContent = "Click 2: colțul opus";
+        } else {
+            var latime = x - primuClick.x;
+            var inaltime = y - primuClick.y;
 
-    if (primuClick === null) {
-        // primul click: memorăm punctul
-        primuClick = { x: x, y: y };
-        document.getElementById("mesajCanvas").textContent = "Click 2: colțul opus";
-    } else {
-        // al doilea click: desenăm dreptunghiul
-        var latime = x - primuClick.x;
-        var inaltime = y - primuClick.y;
+            ctx.fillStyle = document.getElementById("culoareUmplere").value;
+            ctx.fillRect(primuClick.x, primuClick.y, latime, inaltime);
 
-        ctx.fillStyle = document.getElementById("culoareUmplere").value;
-        ctx.fillRect(primuClick.x, primuClick.y, latime, inaltime);
+            ctx.strokeStyle = document.getElementById("culoareContur").value;
+            ctx.strokeRect(primuClick.x, primuClick.y, latime, inaltime);
 
-        ctx.strokeStyle = document.getElementById("culoareContur").value;
-        ctx.strokeRect(primuClick.x, primuClick.y, latime, inaltime);
+            primuClick = null;
+            document.getElementById("mesajCanvas").textContent = "Click 1: primul colț";
+        }
+    });
+}
 
-        // resetăm pentru următorul dreptunghi
-        primuClick = null;
-        document.getElementById("mesajCanvas").textContent = "Click 1: primul colț";
-    }
-});
-
-// șterge tot de pe canvas
 function reseteazaCanvas() {
+    var canvas = document.getElementById("canvasDesen");
+    if (!canvas) return;
+    var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     primuClick = null;
     document.getElementById("mesajCanvas").textContent = "Click 1: primul colț";
 }
 
-// sectiunea 3
 
 
 function adaugaLinie() {
@@ -83,23 +74,26 @@ function adaugaLinie() {
     var pozitie = parseInt(document.getElementById("pozitie").value);
     var culoare = document.getElementById("culoareTabel").value;
 
-    // verificam ca pozitia e valida
+    var textIntrodus = document.getElementById("textNou").value || "-";
+    var pozitieText = parseInt(document.getElementById("pozitieText").value) - 1;
+
     var nrLinii = tabel.rows.length;
     if (pozitie < 1 || pozitie > nrLinii + 1) {
         document.getElementById("mesajTabel").textContent = "Poziție invalidă! Tabelul are " + nrLinii + " linii.";
         return;
     }
 
-    // cream linia noua
     var linieNoua = tabel.insertRow(pozitie);
 
-    // aflam cate coloane are tabelul
     var nrColoane = tabel.rows[0].cells.length;
 
-    // adaugam celule goale cu culoarea aleasa
     for (var i = 0; i < nrColoane; i++) {
         var celula = linieNoua.insertCell(i);
-        celula.textContent = "-";
+        if (i === pozitieText) {
+            celula.textContent = textIntrodus;
+        } else {
+            celula.textContent = "-"; 
+        }
         celula.style.backgroundColor = culoare;
     }
 
@@ -111,25 +105,28 @@ function adaugaColoana() {
     var pozitie = parseInt(document.getElementById("pozitie").value);
     var culoare = document.getElementById("culoareTabel").value;
 
-    // verificam ca pozitia e valida
+    var textIntrodus = document.getElementById("textNou").value || "-";
+    var pozitieText = parseInt(document.getElementById("pozitieText").value) - 1;
+
     var nrColoane = tabel.rows[0].cells.length;
     if (pozitie < 1 || pozitie > nrColoane + 1) {
         document.getElementById("mesajTabel").textContent = "Poziție invalidă! Tabelul are " + nrColoane + " coloane.";
         return;
     }
 
-    // parcurgem fiecare linie si adaugam o celula la pozitia data
     for (var i = 0; i < tabel.rows.length; i++) {
         var celula = tabel.rows[i].insertCell(pozitie);
-        celula.textContent = "-";
-        // aplicam culoarea pe fiecare celula individual
+        if (i === pozitieText) {
+            celula.textContent = textIntrodus;
+        } else {
+            celula.textContent = "-"; 
+        }
         celula.style.backgroundColor = culoare;
     }
 
     document.getElementById("mesajTabel").textContent = "Coloană adăugată la poziția " + pozitie + ".";
 }
 
-// pentru inregistreaza.html
 function trimiteDate() {
     const utilizator = {
         utilizator: document.getElementById("utilizator").value,
@@ -158,4 +155,36 @@ function trimiteDate() {
     };
 
     xhttp.send(JSON.stringify(utilizator));
+}
+
+document.addEventListener('input', function(event) {
+    if (event.target && event.target.id === 'varsta') {
+        const outputVarsta = document.getElementById('valoareVarsta');
+        if (outputVarsta) {
+            outputVarsta.textContent = event.target.value;
+        }
+    }
+});
+
+function verifica() {
+    var x = new XMLHttpRequest();
+
+    x.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var lista = JSON.parse(this.responseText);
+            var u = document.getElementById("user").value;
+            var p = document.getElementById("pass").value;
+            var ok = false;
+
+            lista.forEach(item => {
+                if (item.utilizator == u && item.parola == p) ok = true;
+            });
+
+            document.getElementById("rezultat").innerHTML =
+                ok ? "Autentificare reușită." : "Date greșite.";
+        }
+    };
+
+    x.open("GET", "resurse/utilizatori.json", true);
+    x.send();
 }
