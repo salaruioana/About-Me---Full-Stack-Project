@@ -42,7 +42,6 @@ def proceseaza_client(clientsocket, address):
 
 
         if metoda == "POST" and resursa == "/api/utilizatori":
-            # citire headere + body
             while "\r\n\r\n" not in cerere:
                 cerere += clientsocket.recv(1024).decode()
 
@@ -63,14 +62,11 @@ def proceseaza_client(clientsocket, address):
             try:
                 nou_utilizator = json.loads(body_final)
 
-                # încarcă utilizatori.json
                 with open("../continut/resurse/utilizatori.json", "r", encoding="utf-8") as f:
                     lista = json.load(f)
 
-                # adaugă utilizatorul
                 lista.append(nou_utilizator)
 
-                # scrie înapoi
                 with open("../continut/resurse/utilizatori.json", "w", encoding="utf-8") as f:
                     json.dump(lista, f, indent=4, ensure_ascii=False)
 
