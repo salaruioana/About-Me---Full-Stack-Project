@@ -45,25 +45,25 @@
         <p>Bineînțeles, veți afla <strong>mai multe informații despre Ioana</strong> navigând pe acest site sau
             abonându-vă la newsletterul ei.</p>
         <h2>Formular de abonare la newsletter</h2>
-        <form>
+        <form id="formAbonare" >
             <label for="nume">Nume:</label>
-            <input type="text" name="nume" placeholder="Introduceți numele" required>
+            <input type="text" id="nume" placeholder="Introduceți numele" required>
             <label for="prenume">Prenume:</label>
-            <input type="text" name="prenume" placeholder="Introduceți prenumele" required>
+            <input type="text" id="prenume" placeholder="Introduceți prenumele" required>
             <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="Introduceți adresa de email" required>
+            <input type="email" id="email" placeholder="Introduceți adresa de email" required>
             <label for="parola">Parola:</label>
-            <input type="password" name="parola" placeholder="Introduceți parola" required>
+            <input type="password" id="parola" placeholder="Introduceți parola" required>
             <label for="motiv">Motivul abonării:</label>
-            <select name="motiv" required>
+            <select id="motiv" required>
                 <option value="interes">Vreau să fim prieteni!</option>
                 <option value="actualizare">O urăsc și vreau să o bârfesc.</option>
                 <option value="promovare">Vreau să aflu recomandări de cărți, melodii, destinații de vacanță.</option>
             </select>
             <label for="despre_ioana">Spune-ne ce știi despre Ioana:</label>
-            <textarea name="despre_ioana" placeholder="Scrie ceva despre Ioana..." wrap="off" required></textarea>
+            <textarea id="despre_ioana" placeholder="Scrie ceva despre Ioana..." wrap="off" required></textarea>
             <input type="checkbox" name="accept" required> Sunt de acord cu termenii și condițiile
-            <button type="submit">Abonează-te</button>
+            <button type="button" onclick="abonareNewsletter(event)">Abonează-te </button>
         </form>
     </div>
     <div class="Tema3">

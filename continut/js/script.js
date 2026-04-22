@@ -205,3 +205,34 @@ function verifica() {
     x.open("GET", "resurse/utilizatori.json", true);
     x.send();
 }
+
+function abonareNewsletter(event) {
+    event.preventDefault();
+
+    const abonat = {
+        id: Date.now(),
+        parola: document.getElementById("parola").value,
+        nume: document.getElementById("nume").value,
+        prenume: document.getElementById("prenume").value,
+        email: document.getElementById("email").value,
+        motiv: document.getElementById("motiv").value,
+        despre_ioana: document.getElementById("despre_ioana").value
+    };
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/api/abonati", true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                alert("Cerere înregistrată cu succes!");
+                document.getElementById("formAbonare").reset();
+            } else {
+                alert("Eroare de la server. Mai încearcă.");
+            }
+        }
+    };
+
+    xhttp.send(JSON.stringify(abonat));
+}
