@@ -4,25 +4,42 @@ function initInvat() {
 }
 
 function userInfo() {
-    if (!document.getElementById("data")) return; 
+    const dataElem = document.getElementById("data");
+    if (!dataElem) return; 
 
-    document.getElementById("data").innerHTML = new Date().toLocaleString();
-    document.getElementById("url").innerHTML = window.location.href;
-    document.getElementById("browser").innerHTML = navigator.userAgent;
-    document.getElementById("os").innerHTML = navigator.platform;
+    const updateClock = () => {
+        const now = new Date().toLocaleString();
+        if (document.getElementById("data")) {
+            document.getElementById("data").innerHTML = now;
+        } else {
+            clearInterval(clockInterval);
+        }
+    };
 
-    if (navigator.geolocation) {
+    updateClock();
+    const clockInterval = setInterval(updateClock, 1000);
+
+    if (document.getElementById("url")) 
+        document.getElementById("url").innerHTML = window.location.href;
+    
+    if (document.getElementById("browser")) 
+        document.getElementById("browser").innerHTML = navigator.userAgent;
+    
+    if (document.getElementById("os")) 
+        document.getElementById("os").innerHTML = navigator.platform;
+
+    const locatieElem = document.getElementById("locatie");
+    if (locatieElem && navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-            function (pos) {
-                document.getElementById("locatie").innerHTML =
-                    pos.coords.latitude.toFixed(4) + ", " + pos.coords.longitude.toFixed(4);
+            (pos) => {
+                locatieElem.innerHTML = pos.coords.latitude.toFixed(4) + ", " + pos.coords.longitude.toFixed(4);
             },
-            function () {
-                document.getElementById("locatie").innerHTML = "Nu ai permis accesul la locație";
+            () => {
+                locatieElem.innerHTML = "Nu ai permis accesul la locație";
             }
         );
-    } else {
-        document.getElementById("locatie").innerHTML = "Geolocația nu este suportată";
+    } else if (locatieElem) {
+        locatieElem.innerHTML = "Geolocația nu este suportată";
     }
 }
 
